@@ -1,0 +1,18 @@
+"use client";
+
+import styles from "./StatusBadge.module.css";
+import classNames from "classnames";
+
+const statusMap = {
+  idle: { label: "Idle", tone: "neutral" },
+  ringing: { label: "Ringing…", tone: "accent" },
+  connecting: { label: "Connecting…", tone: "accent" },
+  inCall: { label: "On call", tone: "positive" },
+  ended: { label: "Call ended", tone: "neutral" },
+  error: { label: "Error", tone: "danger" },
+};
+
+export default function StatusBadge({ status }) {
+  const { label, tone } = statusMap[status] ?? statusMap.idle;
+  return <span className={classNames(styles.badge, styles[tone])}>{label}</span>;
+}

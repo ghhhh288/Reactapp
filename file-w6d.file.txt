@@ -1,0 +1,34 @@
+"use client";
+
+import KeyboardKey from "./KeyboardKey";
+import styles from "./DialPad.module.css";
+
+const keypad = [
+  { label: "1", subLabel: "" },
+  { label: "2", subLabel: "ABC" },
+  { label: "3", subLabel: "DEF" },
+  { label: "4", subLabel: "GHI" },
+  { label: "5", subLabel: "JKL" },
+  { label: "6", subLabel: "MNO" },
+  { label: "7", subLabel: "PQRS" },
+  { label: "8", subLabel: "TUV" },
+  { label: "9", subLabel: "WXYZ" },
+  { label: "*", subLabel: "" },
+  { label: "0", subLabel: "+" },
+  { label: "#", subLabel: "" },
+];
+
+export default function DialPad({ onDigit }) {
+  return (
+    <div className={styles.grid}>
+      {keypad.map((key) => (
+        <KeyboardKey
+          key={key.label}
+          label={key.label}
+          subLabel={key.subLabel}
+          onPress={() => onDigit(key.label)}
+        />
+      ))}
+    </div>
+  );
+}

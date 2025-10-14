@@ -1,0 +1,12 @@
+export const metadata = {
+  title: "React Phone Caller",
+  description: "Sleek demo of a phone calling UI built with Next.js + React.",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
